@@ -47,7 +47,7 @@ int main()
                 cout<<"SCOREBOARD"<<endl;
                 for(int r = 0; r < teams; r++)
                 {
-                        cout<<"Player: "<<r + 1<<" ";
+                        cout<<"Player "<<r + 1<<": ";
 
                         for(int c = 0; c < periods; c++)
                         {
