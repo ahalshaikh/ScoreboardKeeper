@@ -75,7 +75,7 @@ int main()
 
                         for(int col = 0; col < Scoreboard[row].size(); col++)
                         {
-                                Scoreboard[row][col] = randomBetween(0,9);
+                                Scoreboard[row][col] = randomBetween(5,5);
                         }
                 }
                 
