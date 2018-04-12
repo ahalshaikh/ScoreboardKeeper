@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -10,8 +12,12 @@ const int MIN_TEAMS = 1;
 
 void printScoreboard(vector < vector <int> >);
 
+int randomBetween(int,int);
+
 int main()
-{
+{       
+        srand((int) time(0));
+        
         int periods;
         int teams;
 
@@ -46,23 +52,32 @@ int main()
                 }
 
 
-                cout<<"SCOREBOARD"<<endl;
-                for(int r = 0; r < Scoreboard.size(); r++)
-                {
-                        cout<<"Player "<<r + 1<<": ";
+                /*cout<<"SCOREBOARD"<<endl;
+                  for(int r = 0; r < Scoreboard.size(); r++)
+                  {
+                  cout<<"Player "<<r + 1<<": ";
 
-                        for(int c = 0; c < Scoreboard[r].size(); c++)
-                        {
+                  for(int c = 0; c < Scoreboard[r].size(); c++)
+                  {
 
-                                cout<<Scoreboard[r][c]<<"|";
+                  cout<<Scoreboard[r][c]<<"|";
 
-                        }
+                  }
 
-                        cout<<endl;
+                  cout<<endl;
 
-                }
-
+                  }
+                 */
                 printScoreboard(Scoreboard);
+
+                for(int row = 0; row < Scoreboard.size(); row++)
+                {
+
+                        for(int col = 0; col < Scoreboard[row].size(); col++)
+                        {
+                                Scoreboard[row][col] = randomBetween(0,9);
+                        }
+                }
 
 
                 //once created, display the scoreboard
@@ -90,4 +105,18 @@ void printScoreboard(vector < vector <int> > board)
                 cout<<endl;
 
         }
+}
+
+int randomBetween(int first,int second)
+{
+        if(first > second)
+        {
+                return second + rand()%(first-second+1);
+        }
+
+        else if( second > first)
+        {
+                return first + rand()%(second-first+1);
+        }
+       
 }
