@@ -78,7 +78,8 @@ int main()
                                 Scoreboard[row][col] = randomBetween(0,9);
                         }
                 }
-
+                
+                printScoreboard(Scoreboard);
 
                 //once created, display the scoreboard
         }
