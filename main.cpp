@@ -8,6 +8,8 @@ const int MAX_TEAMS = 4;
 const int MIN_PERIODS = 1;
 const int MIN_TEAMS = 1;
 
+void printScoreboard(vector < vector <int> >);
+
 int main()
 {
         int periods;
@@ -45,11 +47,11 @@ int main()
 
 
                 cout<<"SCOREBOARD"<<endl;
-                for(int r = 0; r < teams; r++)
+                for(int r = 0; r < Scoreboard.size(); r++)
                 {
                         cout<<"Player "<<r + 1<<": ";
 
-                        for(int c = 0; c < periods; c++)
+                        for(int c = 0; c < Scoreboard[r].size(); c++)
                         {
 
                                 cout<<Scoreboard[r][c]<<"|";
@@ -60,9 +62,32 @@ int main()
 
                 }
 
+                printScoreboard(Scoreboard);
 
 
                 //once created, display the scoreboard
         }
         return 0;
+}
+
+void printScoreboard(vector < vector <int> > board)
+{
+        cout<<"SCOREBOARD"<<endl;
+        //traverse grid and print out each row as a player's score and
+        //each column as the score for that scoring period
+
+        for(int r = 0; r < board.size(); r++)
+        {
+                cout<<"Player "<<r + 1<<": ";
+
+                for(int c = 0; c < board[r].size(); c++)
+                {
+
+                        cout<<board[r][c]<<"|";
+
+                }
+
+                cout<<endl;
+
+        }
 }
